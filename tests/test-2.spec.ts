@@ -14,6 +14,7 @@ test("should display product details and reviews for Apple Juice", async ({
   await expect(
     page.getByRole("img", { name: "Apple Juice (1000ml)" })
   ).toBeVisible();
-  await page.getByRole("button", { name: "Reviews (2)" }).click();
+  await page.locator('[id="mat-expansion-panel-header-0"]').click();
+  await page.waitForTimeout(2000)
   await page.getByLabel("Close Dialog").click();
 });
